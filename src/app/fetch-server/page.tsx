@@ -1,3 +1,4 @@
+import { Card } from "@/components/card";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -33,20 +34,13 @@ const FetchServerSide = async () => {
     return (
       <div className="flex items-center justify-center h-screen w-screen flex-col text-white p-5">
         <div className="text-white font-karla flex flex-row flex-wrap max-w-screen gap-5 items-center justify-center max-h-screen">
-          <h1>Fetch via Server Side</h1>
+          <br /><br />
+          <h1>Loading...</h1>
           <div className="flex flex-row gap-5 flex-wrap items-center justify-center">
             {cardList.map((item) => (
               <div key={item.code}>
-                <h1>{item.code}</h1>
                 <Link href={`/cards/${item.code}`}>
-                    <Image
-                    className="w-40"
-                    src={item.image}
-                    alt="Carta"
-                    width={300}
-                    height={300}
-                    priority
-                    />
+                    <Card code={item.code} suit={item.suit} image={item.image} value={item.value}/>
                 </Link>
               </div>
             ))}

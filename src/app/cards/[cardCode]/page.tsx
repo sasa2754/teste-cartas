@@ -1,4 +1,6 @@
 // src/app/cards/[cardCode]/page.tsx
+import { Card } from "@/components/card";
+
 
 import Image from "next/image";
 
@@ -32,14 +34,7 @@ const CardPage = async ({ params }: { params: { cardCode: string } }) => {
     // Retorna a UI para a carta
     return (
       <div className="flex flex-col items-center justify-center h-screen w-screen text-white">
-        <h1>{card.value} of {card.suit}</h1>
-        <Image
-          src={card.image}
-          alt={card.code}
-          width={300}
-          height={300}
-          priority
-        />
+        <Card code={card.code} suit={card.suit} image={card.image} value={card.value}/>
       </div>
     );
   } catch (error) {
